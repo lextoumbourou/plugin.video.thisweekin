@@ -6,12 +6,16 @@ import xbmcgui
 import xbmcplugin
 
 # Add on info
-__addon__ 		= xbmcaddon.Addon()
-__addon_id__ 	= __addon__.getAddonInfo('id')
+__addon__        = xbmcaddon.Addon()
+__addon_id__     = __addon__.getAddonInfo('id')
 __addon_id_int__ = int(sys.argv[1])
-__addon_dir__ 	= xbmc.translatePath(__addon__.getAddonInfo('path'))
+__addon_dir__    = xbmc.translatePath(__addon__.getAddonInfo('path'))
 
 def get_params():
+    """
+    Return a dictionary of parameters collected
+    from the plugin URL
+    """
     params = {}
     paramstring = sys.argv[2]
     # Check params exist
