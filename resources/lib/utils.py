@@ -13,7 +13,6 @@ __addon_dir__ 	= xbmc.translatePath(__addon__.getAddonInfo('path'))
 
 def get_params():
     params = {}
-    # The plugin will be called with arguments, we want to get the second argument with is the parameters
     paramstring = sys.argv[2]
     # Check params exist
     if len(paramstring)>=2:
@@ -34,6 +33,9 @@ def get_params():
     return params
 
 def add_directory_link(title, thumb, mode, url=None, isFolder=True, totalItems=0):
+    """
+    A wrapper for the addDirectoryItem() method
+    """
     final_url = "{0}?mode={1}&title={2}".format(sys.argv[0], 
                                                 mode, 
                                                 title)
@@ -52,6 +54,10 @@ def add_directory_link(title, thumb, mode, url=None, isFolder=True, totalItems=0
                                        totalItems=totalItems) 
 
 def add_next_page(mode, url, page_no):
+    """
+    A wrapper for addDirectoryItem() method that returns the 'Next Page'
+    link
+    """
     final_url = "{0}?mode={1}&url={2}&page_no={3}".format(sys.argv[0], 
                                                           mode, 
                                                           url,
@@ -65,4 +71,7 @@ def add_next_page(mode, url, page_no):
                                        totalItems=5)
 
 def end_directory():
+    """
+    Simple wrapper for the endOfDirectory method
+    """
     return xbmcplugin.endOfDirectory(__addon_id_int__)

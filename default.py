@@ -44,6 +44,7 @@ def main(params):
         youtube_id = youtube_url.split("/")[3].split("=")[1]
         url = "plugin://plugin.video.youtube?action=play_video&videoid={0}".format(youtube_id)
         xbmc.executebuiltin("xbmc.PlayMedia({0})".format(url))
+
     utils.end_directory()
 
 if __name__ == '__main__':
