@@ -83,8 +83,7 @@ def get_youtube_url(contents):
     return youtube_url
 
 if __name__ == '__main__':
-    base_url = 'http://thisweekin.com/'
-    contents = open_page(base_url)
+    contents = open_page('http://thisweekin.com/')
     print get_shows(contents)
     contents = open_page('http://thisweekin.com/thisweekin-startups/')
     print get_episode_list(contents)
