@@ -13,8 +13,7 @@ __addon_dir__    = xbmc.translatePath(__addon__.getAddonInfo('path'))
 
 def get_params():
     """
-    Return a dictionary of parameters collected
-    from the plugin URL
+    Return a dictionary of parameters collected from the plugin URL
     """
     params = {}
     paramstring = sys.argv[2]
