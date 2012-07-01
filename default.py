@@ -24,8 +24,9 @@ def main(params):
         # See if page number is set, or set it to 1 
         try:
             page_no = int(params['page_no'])
-        except:
+        except KeyError, ValueError:
             page_no = 1
+
         url = params['url']
         contents = scraper.open_page(url+"/page/"+str(page_no))
         episodes = scraper.get_episode_list(contents)
@@ -36,6 +37,7 @@ def main(params):
                                      episode['url'], 
                                      isFolder=False, 
                                      totalItems=21)
+
         utils.add_next_page('list_episode', url, page_no+1)
 
     elif params['mode'] == 'play_video':
@@ -43,6 +45,7 @@ def main(params):
         youtube_url = scraper.get_youtube_url(contents)
         youtube_id = youtube_url.split("/")[3].split("=")[1]
         url = "plugin://plugin.video.youtube?action=play_video&videoid={0}".format(youtube_id)
+
         xbmc.executebuiltin("xbmc.PlayMedia({0})".format(url))
 
     utils.end_directory()
