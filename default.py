@@ -1,6 +1,7 @@
 import re
 import sys
 import xbmcaddon
+from urllib import quote, unquote
 from resources.lib import scraper, utils
 
 ### get addon info
@@ -16,7 +17,7 @@ def main(params):
             utils.add_directory_link(show['title'], 
                                      show['thumb'], 
                                      'list_episode', 
-                                     show['url'], 
+                                     quote(show['url']), 
                                      isFolder=True, 
                                      totalItems=8)
 
@@ -27,21 +28,21 @@ def main(params):
         except KeyError, ValueError:
             page_no = 1
 
-        url = params['url']
+        url = unquote(params['url'])
         contents = scraper.open_page(url+"/page/"+str(page_no))
         episodes = scraper.get_episode_list(contents)
         for episode in episodes:
             utils.add_directory_link(episode['title'], 
                                      episode['thumb'],  
                                      'play_video',  
-                                     episode['url'], 
+                                     quote(episode['url']), 
                                      isFolder=False, 
                                      totalItems=21)
 
         utils.add_next_page('list_episode', url, page_no+1)
 
     elif params['mode'] == 'play_video':
-        contents = scraper.open_page(params['url'])
+        contents = scraper.open_page(unquote(params['url']))
         youtube_url = scraper.get_youtube_url(contents)
         youtube_id = youtube_url.split("/")[3].split("=")[1]
         url = "plugin://plugin.video.youtube?action=play_video&videoid={0}".format(youtube_id)
