@@ -11,7 +11,7 @@
     <extension point="xbmc.addon.metadata">
         <language>en</language>
         <platform>all</platform>
-        <summary>Browse and stream videos from ThisWeekIn.com</summary>
-        <description>ThisWeekIn, Inc. is a web television network covering a wide variety of topics from tech to entertainment. Produced out of our Santa Monica studio, our web shows feature guest experts, founders, movie stars, comedians, technologists and CEO’s — all keeping you up to speed on what’s happening this week with a fast and funny style. Informative and entertaining, ThisWeekIn is the place for whatever your interests may be.</description>
+        <summary lang="en">Browse and stream videos from ThisWeekIn.com</summary>
+        <description lang="en">ThisWeekIn, Inc. is a web television network covering a wide variety of topics from tech to entertainment. Produced out of our Santa Monica studio, our web shows feature guest experts, founders, movie stars, comedians, technologists and CEO’s — all keeping you up to speed on what’s happening this week with a fast and funny style. Informative and entertaining, ThisWeekIn is the place for whatever your interests may be.</description>
     </extension>
 </addon>
